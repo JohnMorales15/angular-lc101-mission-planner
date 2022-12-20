@@ -13,6 +13,17 @@ export class CrewComponent implements OnInit {
     {name: "Ellen Ochoa", firstMission: true}
   ];
 
+  memberBeingEdited: object = null;
+
+  edit(member: object){
+    this.memberBeingEdited = member;
+  }
+
+  save(name: string, member: object) {
+    member['name'] = name;
+    this.memberBeingEdited = null;
+    } 
+    
   add(memberName: string, isFirst: boolean){
     this.crew.push({name: memberName, firstMission: isFirst}); 
   }
